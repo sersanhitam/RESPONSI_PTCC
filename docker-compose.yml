@@ -1,0 +1,48 @@
+version: "3"
+
+services:
+  webserver:
+    build: 
+      context: ./bin/webserver
+    container_name: '5.6.x-webserver'
+    ports:
+      - "80:80"
+      - "443:443"
+    links: 
+      - mysql
+    environment:
+      - DB_HOST=mysql
+
+    volumes: 
+      - ${DOCUMENT_ROOT-./www}:/var/www/html
+      
+  mysql:
+    build: ./bin/mysql
+    container_name: '5.7-mysql'
+    ports:
+      - "3306:3306"
+    
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: hrr
+      MYSQL_USER: fitra
+      MYSQL_PASSWORD: fitra
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: 'fitra-phpmyadmin'
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    depends_on:
+      - mysql
+    ports:
+      - '8080:80'
+    volumes: 
+      - /sessions
+  redis:
+    container_name: 'fitra-redis'
+    image: redis:latest
+    ports:
+      - "6379:6379"

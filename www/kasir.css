@@ -1,0 +1,56 @@
+@font-face {
+	font-family: 'Opens Sans Bold';
+	src: url(OpenSans-Bold.ttf);
+}
+
+@font-face {
+	font-family: 'Opens Sans';
+	src: url(OpenSans-Regular.ttf);
+}
+
+@font-face {
+	font-family: 'Avenir';
+	src: url(AvenirLTStd-Roman.otf);
+}
+
+.bck_form{
+	height: 100%;
+	width: 100%;
+}
+
+.form_pesan{
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	background-color: #FDFDFD;
+	padding: 2rem;
+}
+
+.logo_form{
+	width: 75%;
+}
+
+.form_text1{
+	font-family: 'Avenir';
+	margin-top: 10px;
+	text-align: center;
+}
+
+.input1{
+	width: 240px;
+	height: 35px;
+	margin-top: 10px;
+	border:1px #CCCCCC solid;
+}
+
+.submit1{
+	width: 150px;
+	height: 35px;
+	background-color: #990000;
+	border-radius: 7px;
+	font-family: 'Opens Sans Bold';
+	color: white;
+	font-size: 17px;
+
+}
